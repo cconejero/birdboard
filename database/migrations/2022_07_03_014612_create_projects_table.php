@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('title');
             $table->string('description');
             $table->timestamps();
