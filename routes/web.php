@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProjectsController;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +11,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectsController;
+
+require __DIR__.'/auth.php';
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/projects', [ProjectsController::class, 'index']);
-Route::get('/projects/{project}', [ProjectsController::class, 'show']);
-Route::post('/projects', [ProjectsController::class, 'store'])->middleware('auth');
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/projects', [ProjectsController::class, 'index']);
+    Route::get('/projects/{project}', [ProjectsController::class, 'show']);
+    Route::post('/projects', [ProjectsController::class, 'store']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});
