@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Project::factory()->create([
-            'owner_id' => 1
+            'owner_id' => 1,
         ]);
     }
 }
