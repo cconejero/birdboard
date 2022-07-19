@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,7 +8,10 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
+    corePlugins: {
+        preflight: true,
+    },
+    darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
             fontFamily: {
@@ -15,6 +19,7 @@ module.exports = {
             },
         },
     },
-
-    plugins: [require('@tailwindcss/forms')],
-};
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
+}

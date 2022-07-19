@@ -8,14 +8,10 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <link rel="stylesheet" href="/css/app.css">
-        <link type="text/javascript" href="/js/bootstrap.js" />
-        <link type="text/javascript" href="/js/app.js" />
+{{--        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">--}}
 
         <!-- Scripts -->
-{{--        @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
     <body class="font-sans antialiased">
@@ -23,7 +19,7 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="py-4 container">
+            <main class="py-4 mx-auto container">
                 {{ $slot }}
             </main>
         </div>
