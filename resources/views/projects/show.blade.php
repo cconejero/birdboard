@@ -20,12 +20,19 @@
                         <div class="card mb-3">{{ $task->body }}</div>
                     @endforeach
 
+                    <div class="card mb-3">
+                        <form action="{{ $project->path() . '/tasks' }}" method="POST">
+                            @csrf
+                            <input placeholder="Add a new task" class="w-full" name="body">
+                        </form>
+                    </div>
+
                 </div>
 
                 <div>
                     <h2 class="text-gray-400 font-normal text-lg mb-3">General Notes</h2>
 
-                    <textarea class="card w-full" style="min-height: 200px">Lorem ipsum.</textarea>
+                    <textarea class="card w-full border-0" style="min-height: 200px">Lorem ipsum.</textarea>
                 </div>
             </div>
             <div class="lg:w-1/4 px-3">
