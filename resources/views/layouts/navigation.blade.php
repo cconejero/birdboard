@@ -1,10 +1,11 @@
 <nav class="bg-white">
     <div class="mx-auto container">
         <div class="flex justify-between items-center py-4">
-            <a href="">
-                <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-            </a>
-
+            <h1>
+                <a href="" class="navbar-brand" href="/">
+                    <img src="/images/logo.svg" alt="Birdboard">
+                </a>
+            </h1>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
