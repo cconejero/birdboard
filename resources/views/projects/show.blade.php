@@ -16,11 +16,10 @@
                 <div class="mb-8">
                     <h2 class="text-gray-400 font-normal text-lg mb-3">Tasks</h2>
 
-                    {{--                Tasks --}}
-                    <div class="card mb-3">Lorem ipsum.</div>
-                    <div class="card mb-3">Lorem ipsum.</div>
-                    <div class="card mb-3">Lorem ipsum.</div>
-                    <div class="card">Lorem ipsum.</div>
+                    @foreach($project->tasks as $task)
+                        <div class="card mb-3">{{ $task->body }}</div>
+                    @endforeach
+
                 </div>
 
                 <div>
