@@ -2,7 +2,7 @@
     <div class="mx-auto container">
         <div class="flex justify-between items-center py-4">
             <h1>
-                <a href="" class="navbar-brand" href="/">
+                <a class="navbar-brand" href="/projects">
                     <img src="/images/logo.svg" alt="Birdboard">
                 </a>
             </h1>
