@@ -3,7 +3,8 @@
     <header class="flex items-center mb-3 py-4">
         <div class="flex justify-between items-end w-full">
             <p class="text-gray-400 text-sm font-normal">
-                <a href="/projects" class="text-gray-400 text-sm font-normal no-underline">My Projects</a> / {{ $project->title }}
+                <a href="/projects" class="text-gray-400 text-sm font-normal no-underline">My Projects</a>
+                / {{ $project->title }}
             </p>
 
             <a href="{{ $project->path() . '/edit' }}" class="button">Edit Project</a>
@@ -23,8 +24,10 @@
                                 @csrf
 
                                 <div class="flex">
-                                    <input name="body" value="{{ $task->body }}" class="w-full {{ $task->completed ? 'text-gray-400' : '' }}">
-                                    <input name="completed" type="checkbox" onchange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
+                                    <input name="body" value="{{ $task->body }}"
+                                           class="w-full {{ $task->completed ? 'text-gray-400' : '' }}">
+                                    <input name="completed" type="checkbox"
+                                           onchange="this.form.submit()" {{ $task->completed ? 'checked' : '' }}>
                                 </div>
                             </form>
                         </div>
@@ -67,9 +70,8 @@
                 </div>
             </div>
             <div class="lg:w-1/4 px-3">
-
                 @include('projects.card')
-
+                @include('projects.activity.card')
             </div>
         </div>
     </main>
