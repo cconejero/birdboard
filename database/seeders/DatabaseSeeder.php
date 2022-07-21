@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         ]);
 
-        Project::factory()->create([
+        Project::factory(6)->create([
             'owner_id' => 1,
         ]);
     }
