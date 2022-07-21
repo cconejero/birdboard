@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Project;
+use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Facades\Tests\Setup\ProjectFactory;
 use Tests\TestCase;
 
 class ManageProjectsTest extends TestCase
@@ -20,7 +20,7 @@ class ManageProjectsTest extends TestCase
 
         $this->get('/projects')->assertRedirect('login');
         $this->get('/projects/create')->assertRedirect('login');
-        $this->get($project->path() . '/edit')->assertRedirect('login');
+        $this->get($project->path().'/edit')->assertRedirect('login');
         $this->get($project->path())->assertRedirect('login');
         $this->post('/projects', $project->toArray())->assertRedirect('login');
     }
@@ -35,7 +35,7 @@ class ManageProjectsTest extends TestCase
         $attributes = [
             'title' => $this->faker->sentence,
             'description' => $this->faker->sentence,
-            'notes' => 'General notes here.'
+            'notes' => 'General notes here.',
         ];
 
         $response = $this->post('/projects', $attributes);
@@ -59,11 +59,11 @@ class ManageProjectsTest extends TestCase
             ->patch($project->path(), $attributes = [
                 'title' => 'Is changed',
                 'description' => 'A changed description',
-                'notes' => 'Changed'
+                'notes' => 'Changed',
             ])
             ->assertRedirect($project->path());
 
-        $this->get($project->path() . '/edit')->assertOk();
+        $this->get($project->path().'/edit')->assertOk();
 
         $this->assertDatabaseHas('projects', $attributes);
     }

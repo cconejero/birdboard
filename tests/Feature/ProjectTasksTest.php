@@ -17,7 +17,7 @@ class ProjectTasksTest extends TestCase
     {
         $project = Project::factory()->create();
 
-        $this->post($project->path() . '/tasks')->assertRedirect('login');
+        $this->post($project->path().'/tasks')->assertRedirect('login');
     }
 
     /** @test */
@@ -27,7 +27,7 @@ class ProjectTasksTest extends TestCase
 
         $project = Project::factory()->create();
 
-        $this->post($project->path() . '/tasks', ['body' => 'Test task'])
+        $this->post($project->path().'/tasks', ['body' => 'Test task'])
             ->assertStatus(403);
 
         $this->assertDatabaseMissing('tasks', ['body' => 'Test task']);
@@ -54,7 +54,7 @@ class ProjectTasksTest extends TestCase
         $project = ProjectFactory::create();
 
         $this->actingAs($project->owner)
-            ->post($project->path() . '/tasks', ['body' => 'Test task']);
+            ->post($project->path().'/tasks', ['body' => 'Test task']);
 
         $this->get($project->path())
             ->assertSee('Test task');
@@ -100,7 +100,7 @@ class ProjectTasksTest extends TestCase
         $attributes = Task::factory()->raw(['body' => '']);
 
         $this->actingAs($project->owner)
-            ->post($project->path() . '/tasks', $attributes)
+            ->post($project->path().'/tasks', $attributes)
             ->assertSessionHasErrors('body');
     }
 }

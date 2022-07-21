@@ -9,6 +9,7 @@ use App\Models\User;
 class ProjectFactory
 {
     protected int $tasksCount = 0;
+
     protected $user;
 
     public function withTasks($count)
@@ -25,7 +26,7 @@ class ProjectFactory
         ]);
 
         Task::factory($this->tasksCount)->create([
-            'project_id' => $project->id
+            'project_id' => $project->id,
         ]);
 
         return $project;
