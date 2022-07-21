@@ -39,6 +39,13 @@ class Task extends Model
         $this->project->recordActivity('completed_task');
     }
 
+    public function incomplete()
+    {
+        $this->update(['completed' => false]);
+
+//        $this->project->recordActivity('completed_task');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
