@@ -2,17 +2,16 @@
 
 namespace App\Models;
 
+use App\RecordsActivity;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 
 class Project extends Model
 {
     use HasFactory;
+    use RecordsActivity;
 
     protected $guarded = [];
-
-    public array $old = [];
 
     /**
      * @return string
@@ -50,34 +49,5 @@ class Project extends Model
     public function activity()
     {
         return $this->hasMany(Activity::class)->latest();
-    }
-
-    /**
-     * Record activity for a project
-     *
-     * @param $description
-     * @return void
-     */
-    public function recordActivity($description)
-    {
-        $this->activity()->create([
-            'description' => $description,
-            'changes' => $this->activityChanges($description),
-        ]);
-    }
-
-    /**
-     * @return array
-     */
-    public function activityChanges($description)
-    {
-        if ($description === 'updated') {
-            return [
-                'before' => Arr::except(array_diff($this->old, $this->getAttributes()), 'updated_at'),
-                'after' => Arr::except($this->getChanges(), 'updated_at'),
-            ];
-        } else {
-            return null;
-        }
     }
 }
