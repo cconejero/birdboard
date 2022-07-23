@@ -10,6 +10,22 @@
         <!-- Fonts -->
 {{--        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">--}}
 
+        <script>
+            function handler() {
+                return {
+                    fields: [],
+                    addNewField() {
+                        this.fields.push({
+                            txt1: ''
+                        });
+                    },
+                    removeField(index) {
+                        this.fields.splice(index, 1);
+                    }
+                }
+            }
+        </script>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
