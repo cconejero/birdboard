@@ -1,8 +1,6 @@
 # Birdboard:
 A minimal Basecamp-like project management app.
 
-Pull request are welcome!
-
 ## Requirements
 ```
 php -v // (PHP 8.1.8)
