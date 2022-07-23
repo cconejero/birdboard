@@ -18,7 +18,7 @@ use App\Http\Controllers\ProjectTasksController;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/projects');
 });
 
 Route::group(['middleware' => 'auth'], function () {

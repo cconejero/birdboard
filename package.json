@@ -16,7 +16,7 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.14",
         "resolve-url-loader": "^3.1.2",
-        "sass": "^1.5.1",
+        "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
         "tailwind": "^4.0.0",
         "tailwindcss": "^2.0.4",
@@ -141,6 +141,7 @@
         "update-browserslist-db": "^1.0.4",
         "uri-js": "^4.4.1",
         "urix": "^0.1.0",
+        "vue-js-modal": "^2.0.1",
         "watchpack": "^2.4.0",
         "webpack": "^5.73.0",
         "webpack-sources": "^3.2.3"
